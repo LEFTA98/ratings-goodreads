@@ -43,6 +43,8 @@ if __name__ == "__main__":
     goodreads_test = goodreads_test.rename(columns={"rating_x": "review", "rating_y": "quality"})
     goodreads_train = goodreads_train.rename(columns={"rating_x": "review", "rating_y": "quality"})
 
+    goodreads_train.to_csv("goodreads_train.csv")
+    goodreads_test.to_csv("goodreads_test.csv")
     # sanity check by printing out head of test dataset
     print(goodreads_test.head())
 
