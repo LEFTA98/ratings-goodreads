@@ -24,13 +24,13 @@ if __name__ == "__main__":
     #collate the raw data together and make a dataframe with them
     for ds_path in args.datasets:
         with open(ds_path, 'r') as file:
-        datalines = file.readlines()
-        datadict = []
-        file.close()
-        for line in datalines:
-            review = json.loads(line)
-            review.pop("review_text", None)
-            datadict.append(review)
+            datalines = file.readlines()
+            datadict = []
+            file.close()
+            for line in datalines:
+                review = json.loads(line)
+                review.pop("review_text", None)
+                datadict.append(review)
     
     goodreads_df = pd.DataFrame(datadict)
     goodreads_df = goodreads_df.drop_duplicates(subset="review_id")
